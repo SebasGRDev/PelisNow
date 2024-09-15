@@ -61,11 +61,30 @@ class MovieDetailFragment : Fragment() {
         val tvOverview = view.findViewById<TextView>(R.id.txt_detail_content)
 
         tvTitle.text = title
-        tvVoteAverage.text = String.format("%.1f", voteAverage)
+        tvVoteAverage.text = "${ String.format("%.1f", voteAverage) }/ 10"
         tvOverview.text = overview
         Glide.with(view.context)
             .load("https://image.tmdb.org/t/p/w500${posterPath}")
             .into(ivPosterPath)
+
+        val ratingStar1 = view.findViewById<ImageView>(R.id.txt_detail_rating_star_1)
+        val ratingStar2 = view.findViewById<ImageView>(R.id.txt_detail_rating_star_2)
+        val ratingStar3 = view.findViewById<ImageView>(R.id.txt_detail_rating_star_3)
+        val ratingStar4 = view.findViewById<ImageView>(R.id.txt_detail_rating_star_4)
+        val ratingStar5 = view.findViewById<ImageView>(R.id.txt_detail_rating_star_5)
+
+        setStars(voteAverage?.div(2), ratingStar1, ratingStar2, ratingStar3, ratingStar4, ratingStar5)
+    }
+
+    private fun setStars(rating: Double?, vararg stars: ImageView) {
+        stars.forEachIndexed { index, imageView ->
+            when {
+                rating == null -> imageView.setImageResource(R.drawable.ic_star_empty)
+                index + 1 <= rating -> imageView.setImageResource(R.drawable.ic_star)
+                index + 0.5 <= rating -> imageView.setImageResource(R.drawable.ic_star_half)
+                else -> imageView.setImageResource(R.drawable.ic_star_empty)
+            }
+        }
     }
 
     companion object {
