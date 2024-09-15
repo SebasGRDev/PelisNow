@@ -48,7 +48,7 @@ class MovieDetailFragment : Fragment() {
         setDetailScreen(view)
     }
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint("DefaultLocale", "SetTextI18n")
     private fun setDetailScreen(view: View) {
         val title = arguments?.getString(ARG_TITLE)
         val voteAverage = arguments?.getDouble(ARG_VOTE_AVERAGE)

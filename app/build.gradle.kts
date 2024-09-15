@@ -63,10 +63,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.retrofit2.kotlin.coroutines.adapter)
 
-    //Hilt
-    //implementation(libs.hilt.android)
-    //kapt(libs.hilt.android.compiler)
-
     //Glide
     implementation(libs.glide)
 
@@ -76,6 +72,10 @@ dependencies {
 
     //Fragments navigation
     implementation(libs.androidx.navigation.fragment)
+
+    //Room
+    implementation (libs.androidx.room.ktx)
+    kapt (libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

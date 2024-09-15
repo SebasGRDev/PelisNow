@@ -1,10 +1,13 @@
 package com.example.pelisnow.topMovies.view
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pelisnow.R
 import com.example.pelisnow.databinding.FragmentMovieBinding
+import com.example.pelisnow.topMovies.utils.isNetworkAvailable
 import com.example.pelisnow.topMovies.view.adapters.theatermovies.MoviesInTheaterAdapter
 import com.example.pelisnow.topMovies.view.adapters.topmovies.TopMoviesAdapter
 import com.example.pelisnow.topMovies.viewmodel.MovieViewModel
@@ -43,10 +47,16 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.fetchMovies(getString(R.string.apy_key))
+        if (requireContext().isNetworkAvailable()){
+            viewModel.fetchMovies(getString(R.string.apy_key))
+        } else {
+            viewModel.getMoviesFromDatabase()
+        }
 
         searchTopMovie()
         setRecyclerViewTopMovies(view)
@@ -69,8 +79,9 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                 return false
             }
 
+            @RequiresApi(Build.VERSION_CODES.M)
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.filterMovies(newText)
+                viewModel.filterMovies(requireContext(), newText)
                 return true
             }
         })
