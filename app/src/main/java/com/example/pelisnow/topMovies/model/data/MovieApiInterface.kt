@@ -1,4 +1,4 @@
-package com.example.pelisnow.topMovies.model
+package com.example.pelisnow.topMovies.model.data
 
 import com.example.pelisnow.topMovies.model.data.topratedmovies.RemoteResult
 import com.example.pelisnow.topMovies.model.data.moviesintheaters.MoviesTheatersResult

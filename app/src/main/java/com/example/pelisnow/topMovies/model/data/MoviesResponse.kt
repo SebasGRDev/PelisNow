@@ -1,4 +1,4 @@
-package com.example.pelisnow.topMovies.model
+package com.example.pelisnow.topMovies.model.data
 
 data class MoviesResponse(
     val title: String,

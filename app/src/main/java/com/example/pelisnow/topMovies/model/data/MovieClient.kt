@@ -1,6 +1,5 @@
 package com.example.pelisnow.topMovies.model.data
 
-import com.example.pelisnow.topMovies.model.MovieApiInterface
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
@@ -21,6 +20,4 @@ object MovieClient {
         .build()
 
     val service = retrofit.create(MovieApiInterface::class.java)
-
-
 }

@@ -1,19 +1,17 @@
 package com.example.pelisnow.topMovies.view.adapters.theatermovies
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pelisnow.R
-import com.example.pelisnow.topMovies.model.MoviesResponse
 import com.example.pelisnow.topMovies.model.data.moviesintheaters.MovieTheater
-import com.example.pelisnow.topMovies.model.data.moviesintheaters.MoviesTheatersResult
-import com.example.pelisnow.topMovies.model.data.topratedmovies.Result
-import com.example.pelisnow.topMovies.view.adapters.topmovies.TopMoviesAdapter.TopMoviesViewHolder
+import com.example.pelisnow.topMovies.view.MovieDetailFragment
 
 class MoviesInTheaterAdapter(var theaterMovies: List<MovieTheater>) : RecyclerView.Adapter<MoviesInTheaterAdapter.TheaterViewHolder>() {
 
@@ -35,12 +33,20 @@ class MoviesInTheaterAdapter(var theaterMovies: List<MovieTheater>) : RecyclerVi
         private val tvRating: TextView = itemView.findViewById(R.id.tv_rating)
         private val posterImageView: ImageView = itemView.findViewById(R.id.iv_poster_path)
 
+        @SuppressLint("DefaultLocale")
         fun bind(movie: MovieTheater) {
             tvTitle.text = movie.title
-            tvRating.text = movie.vote_average.toString()
+            tvRating.text = String.format("%.1f", movie.vote_average)
             Glide.with(itemView.context)
                 .load("https://image.tmdb.org/t/p/w500${movie.poster_path}")
                 .into(posterImageView)
+
+            itemView.setOnClickListener {
+                val movieDetailFragment = MovieDetailFragment.newInstance(movie.title, movie.vote_average, movie.poster_path, movie.overview)
+                val fragmentManager = (itemView.context as? AppCompatActivity)?.supportFragmentManager
+
+                fragmentManager?.beginTransaction()?.replace(R.id.fragment_container_view, movieDetailFragment)?.addToBackStack(null)?.commit()
+            }
         }
     }
 }
