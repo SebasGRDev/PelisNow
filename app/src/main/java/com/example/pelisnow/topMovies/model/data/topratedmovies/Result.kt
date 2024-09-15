@@ -1,4 +1,4 @@
-package com.example.pelisnow.topMovies.model
+package com.example.pelisnow.topMovies.model.data.topratedmovies
 
 data class Result(
     val adult: Boolean,

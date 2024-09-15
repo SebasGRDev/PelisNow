@@ -5,13 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".MovieFragment">
+    tools:context=".topMovies.view.MovieFragment">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/search_view_background"
+            android:backgroundTint="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txt_top_movies_title"/>
 
         <TextView
             android:id="@+id/txt_top_movies_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_bar_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/recyclerView_topMovies"
@@ -27,18 +40,18 @@
             android:layout_height="0dp"
             tools:listitem="@layout/item_movies_cards"
             app:layout_constraintTop_toBottomOf="@id/txt_top_movies_title"
-            app:layout_constraintBottom_toTopOf="@id/txt_theaters_movies_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txt_theaters_movies_title"/>
 
         <TextView
             android:id="@+id/txt_theaters_movies_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/recyclerView_topMovies"
-            app:layout_constraintBottom_toTopOf="@id/recyclerView_movies_in_theaters"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/recyclerView_movies_in_theaters"
             android:padding="16dp"
             style="@style/TextAppearance.Material3.TitleLarge"
             android:textStyle="bold"
@@ -51,8 +64,8 @@
             android:layout_height="0dp"
             tools:listitem="@layout/item_movies_cards"
             app:layout_constraintTop_toBottomOf="@id/txt_theaters_movies_title"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
