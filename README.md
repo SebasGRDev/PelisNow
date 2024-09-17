@@ -20,11 +20,11 @@
 ![image](https://github.com/user-attachments/assets/22313bb1-3b3c-4d62-92e9-13825cd0ea48)
 
 # ¡Nunca más te quedarás sin saber qué ver!
-## Se consume el api de las películas "TopRated" (título, poster y calificación) y se pintan en una Card mediante RecyclerView de manera horizontal.
+### Se consume el api de las películas "TopRated" (título, poster y calificación) y se pintan en una Card mediante RecyclerView de manera horizontal.
 ![image](https://github.com/user-attachments/assets/633c9ef5-c3f4-4906-9658-8e613dce7de6)
 
 # ¡Estrenos imperdibles te esperan!
-## Se consume el api de las películas "Movies In Theater" (título, poster y calificación) y se pintan en una Card mediante RecyclerView de manera horizontal.
+### Se consume el api de las películas "Movies In Theater" (título, poster y calificación) y se pintan en una Card mediante RecyclerView de manera horizontal.
 ![image](https://github.com/user-attachments/assets/d99e5495-a0de-4764-b5a7-94a8d901af56)
 
 # ¡Ya sabes qué ver! Conoce la sinopsis y la nota.
