@@ -16,6 +16,7 @@
 - Arquitectura **MVVM**
 - **LiveData**
 - **Corrutinas**
+- **Bundles**
 
 ![image](https://github.com/user-attachments/assets/22313bb1-3b3c-4d62-92e9-13825cd0ea48)
 
@@ -28,7 +29,9 @@
 ![image](https://github.com/user-attachments/assets/d99e5495-a0de-4764-b5a7-94a8d901af56)
 
 # ¡Ya sabes qué ver! Conoce la sinopsis y la nota.
+### Al seleccionar una película se direccionará a otro Fragment y con la ayuda de los Bundles se mandarán los datos entre fragments con los detalles y sinopsis de la película que seleccionaste.
 ![image](https://github.com/user-attachments/assets/f3d3f64a-85eb-414f-bb9a-7d04df0f0311)
 
 # Encuentra tu película al instante.
+### La barra de búsqueda funcionara en tiempo real conforme vayas escribiendo, gracias al uso de LiveData y la arquitectura MVVM
 ![image](https://github.com/user-attachments/assets/071718c8-4f41-451b-99fc-dc4461eae566)
