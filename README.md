@@ -1,5 +1,5 @@
 # "Tu guía personal al cine." 
-## Encuentra rápidamente las películas que te interesan, ya sean éxitos de taquilla o joyas ocultas. ¡Con solo unos clics!
+# Encuentra rápidamente las películas que te interesan, ya sean éxitos de taquilla o joyas ocultas. ¡Con solo unos clics!
 
 ## Definición del proyecto:
 ### Aplicación que consume un API usando **Retrofit** para recuperar las péliculas mejor calíficadas y otro para las películas en cartelera. Estas se mostraran cada una en su respectivo **RecyclerView** de manera horizontal, los cuales estarán implementados en un **Fragment** el cual al ser seleccionado redirigirá a otro con el detalle de la película con el título, poster, resumen y calificación, esta última se mostrará de **manera dinámica** con estrellas dependiendo el puntaje. Se implementó una **barra de busqueda** que funciona en **tiempo real** para filtrar por nombre de película. Se almacenan los datos de forma local con **Room** (SQLite) para que se pueda acceder a la aplicación y filtrar las películas aun sin acceso a internet. 
